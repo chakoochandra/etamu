@@ -1,0 +1,96 @@
+.btn-glowing {
+	animation: glowing 3000ms infinite;
+}
+
+.btn-glowing-red {
+	animation: glowing-red 3000ms infinite;
+}
+
+.glow {
+	-webkit-animation: glowing 1500ms infinite;
+	-moz-animation: glowing 1500ms infinite;
+	-o-animation: glowing 1500ms infinite;
+	animation: glowing 1500ms infinite;
+}
+
+@-webkit-keyframes glowing {
+	0% {
+		-webkit-box-shadow: 0 0 3px #367fa9;
+	}
+
+	50% {
+		-webkit-box-shadow: 0 0 40px #ff0000;
+	}
+
+	100% {
+		-webkit-box-shadow: 0 0 3px #367fa9;
+	}
+}
+
+@-moz-keyframes glowing {
+	0% {
+		-moz-box-shadow: 0 0 3px #367fa9;
+	}
+
+	50% {
+		-moz-box-shadow: 0 0 40px #ff0000;
+	}
+
+	100% {
+		-moz-box-shadow: 0 0 3px #367fa9;
+	}
+}
+
+@-o-keyframes glowing {
+	0% {
+		box-shadow: 0 0 3px #367fa9;
+	}
+
+	50% {
+		box-shadow: 0 0 40px #ff0000;
+	}
+
+	100% {
+		box-shadow: 0 0 3px #367fa9;
+	}
+}
+
+@keyframes glowing {
+	0% {
+		color: white;
+		background-color: #2ba805;
+		box-shadow: 0 0 5px #2ba805;
+	}
+
+	50% {
+		color: white;
+		background-color: #49e819;
+		box-shadow: 0 0 20px #49e819;
+	}
+
+	100% {
+		color: white;
+		background-color: #2ba805;
+		box-shadow: 0 0 5px #2ba805;
+	}
+}
+
+@keyframes glowing-red {
+	0% {
+		color: white;
+		background-color: #f23737;
+		box-shadow: 0 0 5px #f23737;
+	}
+
+	50% {
+		color: white;
+		background-color: #f0640d;
+		box-shadow: 0 0 20px #f0640d;
+	}
+
+	100% {
+		color: white;
+		background-color: #f23737;
+		box-shadow: 0 0 5px #f23737;
+	}
+}

@@ -1,0 +1,1 @@
+<img class="card-img-top w-100 px-4 pt-2" src="<?php echo file_url("foto_tamu", $guest->photo) ?>" alt="Foto Tamu">

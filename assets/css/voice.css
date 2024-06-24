@@ -1,0 +1,118 @@
+.modal .modal-dialog {
+	width: 90%;
+	height: 90%;
+	max-width: none;
+}
+
+.display-antrian-notification {
+	-ms-flex-align: center;
+	align-items: center;
+	background: inherit;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+body {
+	-ms-overflow-style: none;
+	/* Internet Explorer 10+ */
+	scrollbar-width: none;
+	/* Firefox */
+}
+
+body::-webkit-scrollbar {
+	display: none;
+	/* Safari and Chrome */
+}
+
+.text-ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.call-title {
+	text-transform: uppercase;
+	color: yellow;
+	text-align: center;
+	font-size: 4.5vw;
+	font-weight: bold;
+	font-family: Helvetica;
+	text-shadow: 0 1px 0 yellow, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 yellow, 0 5px 0 #aaa, 0 6px 1px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 30%), 0 3px 5px rgb(0 0 0 / 20%), 0 5px 10px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 20%), 0 20px 20px rgb(0 0 0 / 15%);
+	width: 90%;
+}
+
+.call-number-medium {
+	font-size: 10rem;
+}
+
+.call-number-big {
+	font-size: 15rem;
+}
+
+.call-number {
+	line-height: 1;
+	position: relative;
+	display: inline-block;
+	/* animation: bounce .3s ease infinite alternate; */
+	font-weight: bold;
+	text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, .4);
+	/* width: 90%; */
+}
+
+.call-desc,
+.call-sub-desc {
+	color: yellow;
+	min-height: 70px;
+	text-transform: uppercase;
+}
+
+.call-desc {
+	font-size: 5vw;
+	font-weight: bold;
+	line-height: 1;
+	/* width: 95%; */
+}
+
+.call-sub-desc {
+	font-size: xxx-large;
+	/* width: 95%; */
+}
+
+.call-number:nth-child(2) {
+	animation-delay: .1s;
+}
+
+.call-number:nth-child(3) {
+	animation-delay: .2s;
+}
+
+.call-number:nth-child(4) {
+	animation-delay: .3s;
+}
+
+.call-number:nth-child(5) {
+	animation-delay: .4s;
+}
+
+.call-number:nth-child(6) {
+	animation-delay: .5s;
+}
+
+.call-number:nth-child(7) {
+	animation-delay: .6s;
+}
+
+.call-number:nth-child(8) {
+	animation-delay: .7s;
+}
+
+@keyframes bounce {
+	100% {
+		top: -10px;
+		text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc, 0 50px 25px rgba(0, 0, 0, .2);
+	}
+}

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4d72e0d3-e92f-48a3-baa9-7648bae77290" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/file/New Folder/New File.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/file/if_you_like_this_please_donate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/index_hook.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/index_hook.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/ace.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/ace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/keybinding-emacs.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/keybinding-emacs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/keybinding-sublime.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/keybinding-sublime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/keybinding-vim.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/keybinding-vim.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/keybinding-vscode.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/keybinding-vscode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-apache_conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-apache_conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-css.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-css.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-diff.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-diff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-html.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-html.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-javascript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-json.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-json.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-markdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-markdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-nginx.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-nginx.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-php.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-php.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-plain_text.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-plain_text.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-svg.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-svg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-text.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-text.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/mode-xml.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/mode-xml.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-ambiance.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-ambiance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-chaos.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-chaos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-chrome.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-chrome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-clouds.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-clouds.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-clouds_midnight.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-clouds_midnight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-cobalt.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-cobalt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-crimson_editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-crimson_editor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-dawn.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-dawn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-dracula.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-dracula.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-dreamweaver.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-dreamweaver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-eclipse.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-eclipse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-github.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-github.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-gob.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-gob.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-gruvbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-gruvbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-idle_fingers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-idle_fingers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-iplastic.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-iplastic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-katzenmilch.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-katzenmilch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-kr_theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-kr_theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-kuroir.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-kuroir.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-merbivore.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-merbivore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-merbivore_soft.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-merbivore_soft.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-mono_industrial.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-mono_industrial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-monokai.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-monokai.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-nord_dark.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-nord_dark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-pastel_on_dark.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-pastel_on_dark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-solarized_dark.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-solarized_dark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-solarized_light.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-solarized_light.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-sqlserver.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-sqlserver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-terminal.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-terminal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-textmate.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-textmate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-tomorrow.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-tomorrow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-tomorrow_night.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-tomorrow_night.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-tomorrow_night_blue.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-tomorrow_night_blue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-tomorrow_night_bright.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-tomorrow_night_bright.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-tomorrow_night_eighties.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-tomorrow_night_eighties.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-twilight.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-twilight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-vibrant_ink.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-vibrant_ink.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/ace/theme-xcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/ace/theme-xcode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/admin_bulkedit.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/admin_bulkedit.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/admin_bulkedit.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/admin_bulkedit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/admin_print.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/admin_print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/admin_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/admin_view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/admin_view_print.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/admin_view_print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/cacert.pem" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/cacert.pem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/crc32_stream.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/crc32_stream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/deflate_stream.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/deflate_stream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/en_us_lite.json" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/en_us_lite.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/file-explorer/file-explorer.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/file-explorer/file-explorer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/file-explorer/file-explorer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/file-explorer/file-explorer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/file-manager.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/file-manager.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/file-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/file-manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/file_explorer_fs_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/file_explorer_fs_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/file_upload_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/file_upload_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/flex_forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/flex_forms.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/flex_forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/flex_forms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/flexforms/flex_forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/flexforms/flex_forms.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/flexforms/flex_forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/flexforms/flex_forms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/flexforms/flex_forms_dialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/flexforms/flex_forms_dialog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/flexforms/flex_forms_dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/flexforms/flex_forms_dialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/http.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/http.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/install.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/install.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/jquery-3.5.0.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/jquery-3.5.0.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/page_basics.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/page_basics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/random.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/random.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/str_basics.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/str_basics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/utf_utils.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/utf_utils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/view_print_layout.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/view_print_layout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/web_browser.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/web_browser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-side/support/zip_stream_writer.php" beforeDir="false" afterPath="$PROJECT_DIR$/server-side/support/zip_stream_writer.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Evxn3TEZlDasIxIPhrdwzXnUPm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dxh00/Documents/GitHub/Sam&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d72e0d3-e92f-48a3-baa9-7648bae77290" name="Changes" comment="" />
+      <created>1663490023149</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1663490023149</updated>
+      <workItem from="1663490025067" duration="1009000" />
+      <workItem from="1663730421749" duration="2470000" />
+      <workItem from="1663758943614" duration="4662000" />
+      <workItem from="1663848799912" duration="17926000" />
+      <workItem from="1664145702683" duration="8725000" />
+      <workItem from="1664235827053" duration="11971000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

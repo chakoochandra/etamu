@@ -1,0 +1,88 @@
+[class*=sidebar-light-] {
+	background-color: #fbfbfb;
+}
+
+[class*=sidebar-light-] .nav-sidebar>.nav-item.menu-open>.nav-link,
+[class*=sidebar-light-] .nav-sidebar>.nav-item:hover>.nav-link {
+	background-color: rgba(0, 0, 0, .1);
+	color: #007bff;
+}
+
+[class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link.active,
+[class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link.active:hover {
+	background-color: #007bff;
+	color: #fff;
+}
+
+[class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link:hover {
+	background-color: rgba(0, 0, 0, .1);
+	color: #007bff;
+}
+
+[class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link {
+	color: #777;
+}
+
+[class*=sidebar-light-] .sidebar a {
+	color: inherit;
+}
+
+[class*=sidebar-light-] .sidebar a:hover {
+	color: #007bff;
+}
+
+[class*=sidebar-light] .brand-link,
+[class*=sidebar-light] .brand-link .pushmenu {
+	color: inherit;
+}
+
+[class*=sidebar-light] .brand-link:hover,
+[class*=sidebar-light] .brand-link .pushmenu:hover {
+	color: #007bff;
+}
+
+.navbar-light {
+	background-color: #007bff;
+	color: #ffff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+	color: lightblue;
+}
+
+.light-mode .btn-logout:hover {
+	color: red !important;
+}
+
+.light-mode .bg-default {
+	background-color: #f4f6f9;
+}
+
+.light-mode .bg-default .users-card-name,
+.light-mode .bg-default .users-list-date {
+	color: #212529;
+}
+
+/*.light-mode  .form-control:disabled, */
+.light-mode .form-control[readonly] {
+	background-color: inherit;
+}
+
+.light-mode .nav-item .btn-outline-primary,
+.light-mode .nav-item .btn-outline-primary:not(:disabled):not(.disabled).active,
+.light-mode .nav-item .btn-outline-primary:not(:disabled):not(.disabled):active {
+	color: #fff;
+	border-color: #fff;
+}
+
+.light-mode .nav-item .btn-outline-primary.active,
+.light-mode .nav-item .btn-outline-primary:active,
+.light-mode .nav-item .btn-outline-primary:not(:disabled):not(.disabled).active,
+.light-mode .nav-item .btn-outline-primary:not(:disabled):not(.disabled):active {
+	background-color: #3f6791;
+}
