@@ -59,7 +59,7 @@
     <?php } ?>
 
     function checkGateway(type) {
-        fetch('<?php echo base_url('whatsapp/check_gateway') ?>')
+        fetch('<?php echo base_url('etamu/check_gateway') ?>')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);

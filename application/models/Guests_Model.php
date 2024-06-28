@@ -4,7 +4,7 @@ class Guests_Model extends CI_Model
 {
 	function findOne($id)
 	{
-		$this->db->select(TBL_GUESTS . '.*, ' . TBL_GUESTS . '.phone_number AS phone_tamu, ' . TBL_PERSONS . '.person, ' . TBL_PERSONS . '.phone AS phone_pegawai');
+		$this->db->select(TBL_GUESTS . '.*, ' . TBL_GUESTS . '.phone_number AS phone_tamu, ' . TBL_PERSONS . '.person, ' . TBL_PERSONS . '.gender AS person_gender, ' . TBL_PERSONS . '.phone AS phone_pegawai');
 		$this->db->from(TBL_GUESTS);
 		$this->db->join(TBL_PERSONS, TBL_PERSONS . '.id = person_to_meet', 'left');
 		$this->db->where([TBL_GUESTS . '.id' => $id]);

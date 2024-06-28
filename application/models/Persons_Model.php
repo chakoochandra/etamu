@@ -29,12 +29,11 @@ class Persons_Model extends CI_Model
 			$this->db->offset($offset);
 		}
 
-		return $this->db->order_by('id ASC')->get()->result();
+		return $this->db->order_by('order ASC')->get()->result();
 	}
 
 	function insert($data)
 	{
-		//TODO sent whatsapp here
 		return $this->db->insert(TBL_PERSONS, $data);
 	}
 

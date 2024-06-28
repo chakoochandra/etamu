@@ -1,4 +1,4 @@
-<div class="card w-100" <?php echo isset($cardStyle) ? $cardStyle : '' ?> style="min-height: 100vh;">
+<div class="w-100" <?php echo isset($cardStyle) ? $cardStyle : '' ?> style="min-height: 100vh;">
     <?php if (!isset($showHeader) || $showHeader == true) : ?>
         <div class="card-header border-transparent">
             <div class="card-tools">
@@ -12,8 +12,12 @@
                 </div>
             <?php endif ?>
 
-            <div class="d-flex flex-row-reverse">
-                <a class="float-right btn btn-outline-primary chip realtime-clock text-xs mb-0"><?php echo getLocaleTime(strftime("%A, %d %B %Y %H:%M:%S", time())) ?></a>
+            <div class="row mb-2">
+                <div class="col-sm-6 my-breadcrumb">
+                </div>
+                <div class="col-sm-6 m-0">
+                    <a class="float-right btn btn-outline-primary chip realtime-clock text-xs mb-0"><?php echo getLocaleTime(strftime("%A, %d %B %Y %H:%M:%S", time())) ?></a>
+                </div>
             </div>
         </div>
     <?php endif ?>

@@ -149,6 +149,35 @@ if (!function_exists('hit_api')) {
             ];
         }
     }
+
+    function hit_api_async($endpoint, $type = 'GET', $data = null, $token = null)
+    {
+        $ch = curl_init($endpoint);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 1); // Set timeout to 1 second
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($type));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $token,
+        ]);
+        if ($type == 'POST' || $type == 'PUT' || $type == 'PATCH') {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        }
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+
+        $response = curl_exec($ch);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $error = curl_error($ch);
+        curl_close($ch);
+
+        return [
+            'status' => $error ? false : true,
+            'code' => $http_code,
+            'response' => $response ?: $error,
+        ];
+    }
 }
 if (!function_exists('send_wa')) {
     function send_wa($target, $text, $filePath = null)

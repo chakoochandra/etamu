@@ -1,27 +1,66 @@
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+	.container-frame {
+		width: 100%;
+		position: relative;
+		padding-top: 56.25%;
+		/* 16:9 aspect ratio */
+	}
+
+	.webcam-frame {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		/* just for illustration */
+	}
+
+	video {
+		position: absolute;
+		top: 1px;
+	}
+
+	.camera-controls {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 10;
+		/* Higher than webcam-container */
+		background-color: rgba(0, 0, 0, 0.5);
+		/* Optional: semi-transparent background */
+		padding: 5px;
+	}
+</style>
 
 <main id="main-webcam-<?php echo $name ?>-<?php echo $class ?>">
-	<div id="error-message-<?php echo $name ?>-<?php echo $class ?>" class="error-message direct-chat-text bg-danger d-none">
-		Gagal memulai kamera, pastikan mengakses <?php echo APP_SHORT_NAME ?> menggunakan <strong>https</strong> dan izinkan untuk mengakses kamera.<br /><br />
-		<strong><a href="<?php echo str_replace('http://', 'https://', base_url('site')) ?>" class="text-white">Klik di sini untuk mereload <?php echo APP_SHORT_NAME ?> menggunakan https</a></strong>
-	</div>
+	<div class="container-frame">
+		<div class="webcam-frame row p-0 m-0">
+			<div id="webcam-<?php echo $name ?>-<?php echo $class ?>-container" class="webcam-<?php echo $name ?>-<?php echo $class ?>-container w-100 p-0 m-0 d-none">
+				<video id="webcam-<?php echo $name ?>-<?php echo $class ?>" class="w-100 h-100" autoplay playsinline></video>
+				<canvas id="canvas-<?php echo $name ?>-<?php echo $class ?>" class="d-none w-100"></canvas>
+				<div class="flash-<?php echo $name ?>-<?php echo $class ?>"></div>
+				<audio id="snapSound-<?php echo $name ?>-<?php echo $class ?>" src="<?php echo base_url('assets/vendor/webcam-easy/demo/snap.wav') ?>" preload="auto"></audio>
+			</div>
+			<div id="error-message-<?php echo $name ?>-<?php echo $class ?>" class="error-message direct-chat-text bg-danger d-none">
+				Gagal memulai kamera, pastikan mengakses <?php echo APP_SHORT_NAME ?> menggunakan <strong>https</strong> dan izinkan untuk mengakses kamera.<br /><br />
+				<strong><a href="<?php echo str_replace('http://', 'https://', base_url('site')) ?>" class="text-white">Klik di sini untuk mereload <?php echo APP_SHORT_NAME ?> menggunakan https</a></strong>
+			</div>
+			<div id="cameraControls-<?php echo $name ?>-<?php echo $class ?>" class="camera-controls cameraControls-<?php echo $name ?>-<?php echo $class ?> d-flex justify-content-center align-items-center w-100">
+				<a href="#" id="open-camera-<?php echo $name ?>-<?php echo $class ?>" title="Buka Kamera" class="btn btn-outline-success w-100"><i class="fa fa-camera" aria-hidden="true"></i> Buka Kamera</a>
 
-	<div class="row p-0 m-0">
-		<div id="webcam-<?php echo $name ?>-<?php echo $class ?>-container" class="webcam-<?php echo $name ?>-<?php echo $class ?>-container w-100 p-0 m-0 d-none">
-			<video id="webcam-<?php echo $name ?>-<?php echo $class ?>" class="w-100 h-100" autoplay playsinline></video>
-			<canvas id="canvas-<?php echo $name ?>-<?php echo $class ?>" class="d-none w-100"></canvas>
-			<div class="flash-<?php echo $name ?>-<?php echo $class ?>"></div>
-			<audio id="snapSound-<?php echo $name ?>-<?php echo $class ?>" src="<?php echo base_url('assets/vendor/webcam-easy/demo/snap.wav') ?>" preload="auto"></audio>
-		</div>
-		<div id="cameraControls-<?php echo $name ?>-<?php echo $class ?>" class="cameraControls-<?php echo $name ?>-<?php echo $class ?> d-flex justify-content-center align-items-center w-100">
-			<a href="#" id="exit-app-<?php echo $name ?>-<?php echo $class ?>" title="Tutup Kamera" class="mode-capture-<?php echo $name ?>-<?php echo $class ?> btn btn-outline-danger w-50 d-none justify-content-center align-items-center"><i class="fa fa-close" aria-hidden="true"></i>&nbsp;Batal</a>
-			<!-- <a href="#" id="camera-flip" title="Switch Kamera" class="mode-capture"><i class="material-icons">flip_camera_android</i></a> -->
-			<a href="#" id="take-photo-<?php echo $name ?>-<?php echo $class ?>" title="Ambil Foto" class="mode-capture-<?php echo $name ?>-<?php echo $class ?> btn btn-outline-success w-50 d-none justify-content-center align-items-center"><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;Ambil Foto</a>
+				<a href="#" id="exit-app-<?php echo $name ?>-<?php echo $class ?>" title="Tutup Kamera" class="mode-capture-<?php echo $name ?>-<?php echo $class ?> btn btn-outline-danger w-50 d-none justify-content-center align-items-center"><i class="fa fa-close" aria-hidden="true"></i>&nbsp;Batal</a>
+				<!-- <a href="#" id="camera-flip" title="Switch Kamera" class="mode-capture"><i class="material-icons">flip_camera_android</i></a> -->
+				<a href="#" id="take-photo-<?php echo $name ?>-<?php echo $class ?>" title="Ambil Foto" class="mode-capture-<?php echo $name ?>-<?php echo $class ?> btn btn-outline-success w-50 d-none justify-content-center align-items-center"><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;Ambil Foto</a>
+			</div>
 		</div>
 	</div>
 </main>
-<a href="#" id="open-camera-<?php echo $name ?>-<?php echo $class ?>" title="Buka Kamera" class="btn btn-outline-success w-100"><i class="fa fa-camera" aria-hidden="true"></i> Buka Kamera</a>
 <input type="hidden" id="hidden-<?php echo $name ?>-<?php echo $class ?>" name="<?php echo $name ?>" value="<?php echo $value ?>" />
 
 <script>
@@ -68,11 +107,20 @@
 			beforeTakePhoto();
 
 			picture = webcam.snap();
-			// $('#hidden-').val(picture);
 			var compressedImage = canvas.toDataURL('image/png', 0.1);
 			$('#hidden-<?php echo $name ?>-<?php echo $class ?>').val(compressedImage);
 
 			afterTakePhoto();
+		});
+
+		$('form').on('submit', function() {
+			var videoElement = $('#webcam-<?php echo $name ?>-<?php echo $class ?>');
+			if (videoElement.is(":visible")) {
+				picture = webcam.snap();
+				var compressedImage = canvas.toDataURL('image/png', 0.1);
+				$('#hidden-<?php echo $name ?>-<?php echo $class ?>').val(compressedImage);
+				webcam.stop();
+			}
 		});
 
 		function afterTakePhoto() {

@@ -10,7 +10,7 @@ if (!function_exists('switch_input')) {
                 $title = isset($field['title']) ? "<h6 class='font-weight-bold'><i class='fa fa-" . (isset($field['icon']) ? $field['icon'] : 'warning') . "' aria-hidden='true'></i> &nbsp; {$field['title']}</h6>" : '';
                 $message = isset($field['info']) ? $field['info'] : '';
                 $class = isset($field['textClass']) ? $field['textClass'] : 'small';
-                return warning_message($title . $message, '', $class);
+                return warning_message($title . $message, 'warning', $class);
             case 'form_checkbox':
                 $html = '';
                 if (isset($field['data']) && is_array($field['data'])) {
@@ -52,7 +52,7 @@ if (!function_exists('switch_input')) {
             case 'form_number':
                 $field['type'] = 'number';
                 return form_input($field);
-            case 'camera':
+            case 'form_camera':
                 if ($field['value'] && file_exists($field['value'])) {
                     $field['value'] = 'data:' . mime_content_type($field['value']) . ';base64,' . base64_encode(file_get_contents($field['value']));
                 }
@@ -142,7 +142,7 @@ if (!function_exists('my_form')) {
 
             $label = isset($field['label']) ? $field['label'] : (isset($field['placeholder']) ? $field['placeholder'] : '');
             $html .= $label ? '<label for="' . $field['name'] . '" class="' . $divClass . ' ' . $collapse . '">' . $label . '</label>' : '';
-            $html .= isset($field['type']) && (in_array($field['type'], ['form_hidden', 'form_checkbox'])) ? '' : '<div class="input-group mb-3 align-items-center' . ($divClass ?: 'justify-content-center') . ' ' . $collapse . '">';
+            $html .= isset($field['type']) && (in_array($field['type'], ['form_hidden', 'form_checkbox'])) ? '' : '<div class="input-group mb-3 align-items-center ' . ($divClass ?: 'justify-content-center') . ' ' . $collapse . '">';
             $html .= isset($field['type']) ? switch_input($field['type'], $field) : form_input($field);
             $html .= isset($field['type']) && (in_array($field['type'], ['form_hidden', 'form_checkbox'])) ? '' : '</div>';
         }

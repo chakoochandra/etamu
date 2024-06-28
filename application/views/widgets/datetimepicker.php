@@ -14,7 +14,6 @@
 <script>
     $(document).ready(function() {
         if (window.jQuery().datetimepicker) {
-            console.log('------------heheheeh')
             $('#datetimepicker-<?php echo $field['name'] ?>').datetimepicker({
                 format: '<?php echo isset($field['format']) ? $field['format'] : 'DD MMMM YYYY HH:mm' ?>',
                 icons: {
@@ -35,7 +34,6 @@
                 if (datetimeValue) {
                     $('#datetimepicker-<?php echo $field['name'] ?>').val(moment(datetimeValue, 'DD MMMM YYYY HH:mm').format('YYYY-MM-DD HH:mm:ss'));
                 }
-
             });
         }
     })

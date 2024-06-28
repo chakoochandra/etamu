@@ -45,16 +45,6 @@ class Core_Controller extends CI_Controller
             return $this->set_content_type($data);
         }
     }
-}
-
-class Notif_Controller extends Core_Controller
-{
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->load->model('Guests_Model', 'guests');
-    }
 
     public function check_gateway()
     {
@@ -70,6 +60,16 @@ class Notif_Controller extends Core_Controller
                 substr(DIALOGWA_TOKEN, 0, 10) . '.....' . substr(DIALOGWA_TOKEN, -10);
         }
         return $this->set_content_type($result);
+    }
+}
+
+class Notif_Controller extends Core_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->load->model('Guests_Model', 'guests');
     }
 
     function next()
@@ -122,7 +122,7 @@ class Notif_Controller extends Core_Controller
         $where = ['where' => [
             [
                 'perkara_id' => $this->uri->segment(3),
-                'phone_number' => ENVIRONMENT == 'development' ? WA_TEST_TARGET : $this->uri->segment(4),
+                'phone_number' => ENVIRONMENT == 'development' ? WA_TEST_TARGET_ETAMU : $this->uri->segment(4),
             ]
         ]];
         $config = $this->pagination->set([
