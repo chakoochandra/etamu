@@ -51,6 +51,42 @@ if (!function_exists('add_days_to_date')) {
     }
 }
 
+if (!function_exists('get_notif_range')) {
+    function get_notif_range($filter = '')
+    {
+        $range = [
+            'antrian' => [1, 1],
+            'sidang' => [2, 6],
+            'calendar' => !is_development() ? 6 : 365,
+            'jurnal' => !is_development() ? -30 : -365,
+            'ac' => !is_development() ? -30 : -365,
+        ];
+        return isset($range[$filter]) ? $range[$filter] : $range['antrian'];
+    }
+}
+
+if (!function_exists('get_notif_criteria')) {
+    function get_notif_criteria($filter = '')
+    {
+        $range = get_notif_range($filter);
+        switch ($filter) {
+            case 'antrian':
+            case 'sidang':
+                return "tipe LIKE 'sidang%' AND tanggal_sidang = tanggal_antrian AND tanggal_antrian BETWEEN CURDATE() + INTERVAL {$range[0]} DAY AND CURDATE() + INTERVAL {$range[1]} DAY";
+                // case 'sidang':
+                //     return "tanggal_sidang BETWEEN CURDATE() + INTERVAL {$range[0]} DAY AND CURDATE() + INTERVAL {$range[1]} DAY";
+            case 'calendar':
+                return "((rencana_tanggal BETWEEN CURDATE() + INTERVAL 1 DAY AND CURDATE() + INTERVAL {$range} DAY) OR (rencana_tanggal = CURRENT_DATE() AND rencana_jam > CURRENT_TIME())) AND rencana_agenda REGEXP 'perbaikan|jawaban|replik|duplik|kesimpulan'";
+            case 'jurnal':
+                // jenis perkara 346 = cerai talak
+                // status putusan 62 = Dikabulkan
+                return "(tahapan_id = 10 AND tanggal_putusan > CURRENT_DATE() + INTERVAL {$range} DAY AND (pemasukan - pengeluaran) > 0 AND (CASE WHEN (perkara.jenis_perkara_id = 346 AND status_putusan_id = 62) THEN (tgl_ikrar_talak IS NOT NULL) ELSE (1=1) END))";
+            case 'ac':
+                return "tgl_akta_cerai IS NOT NULL AND (tgl_penyerahan_akta_cerai IS NOT NULL AND tgl_penyerahan_akta_cerai_pihak2 IS NULL) AND tgl_akta_cerai > CURRENT_DATE() + INTERVAL {$range} DAY";
+        }
+    }
+}
+
 if (!function_exists('add_currency_symbol')) {
     function add_currency_symbol($amount, $currencySymbol = 'Rp')
     {
@@ -101,6 +137,210 @@ if (!function_exists('merge_html_class')) {
     }
 }
 
+if (!function_exists('generate_excel')) {
+    function generate_excel($options)
+    {
+        include APPPATH . 'third_party/PHPExcel/Classes/PHPExcel.php';
+
+        $CI = get_instance();
+
+        $columns = isset($options['columns']) ? $options['columns'] : [];
+        $isLandscape = count($columns) > 7;
+        $startRow = isset($options['startRow']) ? $options['startRow'] : 1;
+        $startCol = isset($options['startColumn']) ? $options['startColumn'] : 'A';
+        $startOrd = ord($startCol);
+        $endCol = chr($startOrd + count($columns));
+
+        $excel = new PHPExcel();
+        $excel->getProperties()
+            ->setCreator($CI->user->nama_lengkap)
+            ->setLastModifiedBy($CI->user->nama_lengkap);
+
+        if (isset($options['properties']['title'])) {
+            $excel->getProperties()->setTitle($options['properties']['title']);
+        }
+        if (isset($options['properties']['subject'])) {
+            $excel->getProperties()->setSubject($options['properties']['subject']);
+        }
+        if (isset($options['properties']['description'])) {
+            $excel->getProperties()->setDescription($options['properties']['description']);
+        }
+        if (isset($options['properties']['keywords'])) {
+            $excel->getProperties()->setKeywords($options['properties']['keywords']);
+        }
+
+        $activeSheet = $excel->getActiveSheet();
+
+        $tabColors = [
+            1 => PHPExcel_Style_Color::COLOR_GREEN,
+            2 => PHPExcel_Style_Color::COLOR_DARKGREEN,
+        ];
+
+        if (isset($options['data']['allData'])) {
+            $keys = array_keys($options['data']['allData']);
+            $lastArrayKey = array_pop($keys);
+            $tab = 1;
+            foreach ($options['data']['allData'] as $key => $data) {
+                $activeSheet->getPageSetup()->setOrientation($isLandscape ? PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE : PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT);
+                $activeSheet->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+                $activeSheet->getPageSetup()->setFitToPage(true);
+                $activeSheet->getPageSetup()->setFitToWidth(1);
+                $activeSheet->getPageSetup()->setFitToHeight(0);
+                $activeSheet->getPageSetup()->setHorizontalCentered(true);
+
+                $activeSheet->getPageMargins()->setTop(0.5);
+                $activeSheet->getPageMargins()->setBottom(0.8);
+
+                $activeSheet->getTabColor()->setARGB($tabColors[$tab]);
+
+                if (isset($options['data']['allSheets'][$key])) {
+                    $activeSheet->setTitle($options['data']['allSheets'][$key]);
+                }
+
+                $curRow = $startRow;
+                if (isset($options['data']['allTitles'][$key])) {
+                    $activeSheet->mergeCells("{$startCol}{$curRow}:{$endCol}{$curRow}");
+                    $activeSheet->getRowDimension($curRow)->setRowHeight(50);
+                    $activeSheet->getStyle("{$startCol}{$curRow}")->applyFromArray(
+                        [
+                            'alignment' => [
+                                'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+                            ],
+                            'font'  => [
+                                'bold'  => true,
+                                'size'  => 30,
+                                'name'  => 'Verdana'
+                            ]
+                        ]
+                    );
+
+                    $activeSheet->setCellValue("{$startCol}{$curRow}", $options['data']['allTitles'][$key]);
+                    $curRow += 1;
+                }
+
+                $activeSheet->mergeCells("{$startCol}{$curRow}:{$endCol}{$curRow}");
+                $activeSheet->getRowDimension($curRow)->setRowHeight(20);
+                $activeSheet->getStyle("{$startCol}{$curRow}")->applyFromArray(
+                    [
+                        'alignment' => [
+                            'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+                        ],
+                        'font'  => [
+                            'bold'  => true,
+                            'size'  => 12,
+                            'name'  => 'Verdana'
+                        ]
+                    ]
+                );
+
+                if (isset($options['subTitle'])) {
+                    $activeSheet->setCellValue("{$startCol}{$curRow}", $options['subTitle']);
+                    $curRow += 2;
+                }
+
+                $startRowTable = $curRow;
+
+                $activeSheet->getPageSetup()->setRowsToRepeatAtTopByStartAndEnd($curRow, $curRow);
+                $activeSheet->getColumnDimension($startCol)->setWidth(3.5);
+                $activeSheet->setCellValue("{$startCol}{$curRow}", "No.");
+
+                $curOrd = $startOrd + 1;
+                foreach ($columns as $field => $header) {
+                    $activeSheet->getColumnDimension(chr($curOrd))->setWidth($options['colWidth'][$field]);
+                    $activeSheet->setCellValue(chr($curOrd) . $curRow, $header);
+                    $curOrd++;
+                }
+
+                $activeSheet->getRowDimension($curRow)->setRowHeight(30);
+                $activeSheet->getStyle("{$startCol}{$curRow}:{$endCol}{$curRow}")->applyFromArray(
+                    [
+                        'fill' => [
+                            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                            'color' => ['rgb' => '008000']
+                        ],
+                        'font'  => [
+                            'bold'  => true,
+                            'color' => ['rgb' => 'FFFFFF'],
+                            'size'  => 8,
+                            'name'  => 'Verdana'
+                        ],
+                        'alignment' => [
+                            'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+                        ]
+                    ]
+                );
+
+                $style = [
+                    'alignment' => [
+                        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+                    ]
+                ];
+
+                $no = 1;
+                $curRow += 1;
+                foreach ($data as $row) {
+                    $activeSheet->getRowDimension($curRow)->setRowHeight(60);
+                    $activeSheet->setCellValue("{$startCol}{$curRow}", $no);
+                    $activeSheet->getStyle("{$startCol}{$curRow}")->applyFromArray($style);
+
+                    $curOrd = $startOrd + 1;
+                    foreach ($columns as $field => $header) {
+                        if (isset($options['colStyles'][$field])) {
+                            $activeSheet->getStyle(chr($curOrd) . $curRow)->applyFromArray($options['colStyles'][$field]);
+                        }
+
+                        if ($field == 'jam') {
+                            if ($row->no_antrian) {
+                                $startHour = date('H:i', strtotime($row->jam_sidang));
+                                $activeSheet->setCellValue(chr($curOrd) . $curRow, $startHour);
+                                $startHour = date('H:i', strtotime("+{$row->$field} minutes", strtotime($startHour)));
+                            }
+                        } else if ($field == 'nama_ruang') {
+                            $activeSheet->setCellValue(chr($curOrd) . $curRow, $row->no_antrian);
+                            // $activeSheet->setCellValue(chr($curOrd) . $curRow, $row->no_antrian ?: $row->nama_ruang);
+                        } else {
+                            $activeSheet->setCellValue(chr($curOrd) . $curRow, str_replace(['</br>', '<br />'], "\n", $row->$field));
+                        }
+                        $curOrd++;
+                    }
+
+                    $no++;
+                    $curRow++;
+                }
+
+                $activeSheet->getStyle("{$startCol}{$startRowTable}:{$endCol}" . ($curRow - 1))->applyFromArray([
+                    'borders' => [
+                        'allborders' => [
+                            'style' => PHPExcel_Style_Border::BORDER_THIN,
+                        ]
+                    ]
+                ]);
+
+                $activeSheet->getStyle("{$startCol}{$startRow}:" . chr($curOrd) . $curRow)->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+                $activeSheet->getStyle("{$startCol}{$startRow}:" . chr($curOrd) . $curRow)->getAlignment()->setWrapText(true);
+
+                if (isset($options['footer'])) {
+                    $activeSheet->getHeaderFooter()->setOddFooter($options['footer']);
+                }
+                if (isset($options['header'])) {
+                    $activeSheet->getHeaderFooter()->setOddHeader($options['header']);
+                }
+
+                if ($key != $lastArrayKey) {
+                    $tab++;
+                    $activeSheet = $excel->createSheet($tab);
+                }
+            }
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="' . (isset($options['filename']) ? $options['filename'] : time()) . '.xlsx"');
+        header('Cache-Control: max-age=0');
+        $write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
+        $write->save('php://output');
+    }
+}
+
 if (!function_exists('hit_api')) {
     function hit_api($endpoint, $type = 'GET', $data = null, $token = null)
     {
@@ -113,14 +353,13 @@ if (!function_exists('hit_api')) {
         $request = new GuzzleHttp\Psr7\Request(strtoupper($type), $endpoint);
 
         try {
-            $promise = $client->sendAsync($request, [
+            return $client->sendAsync($request, [
                 'headers' => [
                     'Content-Type' => 'application/json',
                     'Authorization' => 'Bearer ' . $token,
                 ],
                 'json' => $data,
-            ]);
-            return $promise->then(function ($response) {
+            ])->then(function ($response) {
                 return [
                     'status' => true,
                     'code' => $response->getStatusCode(),
@@ -128,18 +367,10 @@ if (!function_exists('hit_api')) {
                 ];
             })->wait();
         } catch (GuzzleHttp\Exception\RequestException $exception) {
-            if ($exception->hasResponse()) {
-                $statusCode = $exception->getResponse()->getStatusCode();
-                $body = $exception->getResponse()->getBody()->getContents();
-            } else {
-                $statusCode = $exception->getCode();
-                $body = $exception->getMessage();
-            }
-
             return [
                 'status' => false,
-                'code' => $statusCode,
-                'response' => $body,
+                'code' => $exception->hasResponse() ? $exception->getResponse()->getStatusCode() : $exception->getCode(),
+                'response' => $exception->hasResponse() ? $exception->getResponse()->getBody()->getContents() : $exception->getMessage(),
             ];
         } catch (\Exception $exception) {
             return [
@@ -179,8 +410,9 @@ if (!function_exists('hit_api')) {
         ];
     }
 }
+
 if (!function_exists('send_wa')) {
-    function send_wa($target, $text, $filePath = null)
+    function send_wa($target, $text, $sleep = 60, $filePath = null)
     {
         $data = [
             'session' => DIALOGWA_SESSION,
@@ -203,9 +435,10 @@ if (!function_exists('send_wa')) {
             return ['status' => $result['status'], 'message' => isset($result['response']) ? $result['response'] : (isset($result['message']) ? $result['message'] : 'Terjadi Kesalahan!')];
         }
 
-        sleep((is_development() ? 1 : 60));
+        sleep((is_development() ? 1 : $sleep));
 
         $result = json_decode($result['response'], 1);
+
         if (!isset($result['data'])) {
             return $result;
         }
@@ -223,6 +456,21 @@ if (!function_exists('curl_reset')) {
     {
         curl_close($ch);
         $ch = curl_init();
+    }
+}
+
+if (!function_exists('write_custom_log')) {
+    function write_custom_log($message, $level = 'info', $file = 'custom_log')
+    {
+        $CI = &get_instance();
+        $CI->load->helper('file');
+
+        $filepath = APPPATH . 'logs/' . $file . '-' . date('Y-m-d') . '.php';
+        $message  = strtoupper($level) . ' ' . date('Y-m-d H:i:s') . ' --> ' . $message . "\n";
+
+        if (!write_file($filepath, $message, 'a')) {
+            log_message('error', 'Unable to write to custom log file: ' . $filepath);
+        }
     }
 }
 
@@ -449,6 +697,8 @@ if (!function_exists('my_validation_errors')) {
         $CI = get_instance();
         if (validation_errors()) {
             return validation_errors();
+        } else if ($CI->ion_auth->errors()) {
+            return $CI->ion_auth->errors();
         }
         return 'Terjadi kesalahan pada saat mengirim data';
     }

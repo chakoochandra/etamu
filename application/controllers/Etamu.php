@@ -351,8 +351,8 @@ class Etamu extends Core_Controller
                             $id = $guestId ?: $this->db->insert_id();
 
                             if (!$guestId && SEND_NOTIFICATION) {
-                                hit_api(base_url("api/send_notif_etamu/$id"), 'GET', null, DIALOGWA_TOKEN);
-                                // hit_api_async(base_url("api/send_notif_etamu/$id"), 'GET', null, DIALOGWA_TOKEN);
+                                // hit_api(base_url("api/send_notif_etamu/$id"), 'GET', null, DIALOGWA_TOKEN);
+                                hit_api_async(base_url("api/send_notif_etamu/$id"), 'GET', null, DIALOGWA_TOKEN);
                             }
                         }
 

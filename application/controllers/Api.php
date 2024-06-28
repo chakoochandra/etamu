@@ -58,10 +58,10 @@ class Api extends CI_Controller
 
 	private function _authenticate()
 	{
-		if (!WA_TEST_TARGET) {
+		if (!WA_TEST_TARGET_ETAMU) {
 			return [
 				'status' => 405,
-				'error' => 'Variabel WA_TEST_TARGET belum diset pada tabel configs'
+				'error' => 'Variabel WA_TEST_TARGET_ETAMU belum diset pada tabel configs'
 			];
 		}
 		if (!DIALOGWA_API_URL) {
