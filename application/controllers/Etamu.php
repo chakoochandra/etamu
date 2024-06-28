@@ -157,10 +157,6 @@ class Etamu extends Core_Controller
 
     public function person()
     {
-        if (!$this->input->is_ajax_request() && !$this->ion_auth->logged_in()) {
-            redirect('site/login', 'refresh');
-        }
-
         $where = ['where' => []];
 
         $config = $this->pagination->set([
