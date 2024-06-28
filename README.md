@@ -1,18 +1,19 @@
 # eTamu
 
-Aplikasi buku tamu digital. Silakan dipergunakan dan dimodifikasi untuk penggunaan pribadi. 
+Aplikasi buku tamu digital. Silakan dipergunakan dan dimodifikasi untuk penggunaan pribadi / kantor / satker Anda. Dilarang memperjualbelikan aplikasi ini baik aslinya maupun hasil modifikasi. 
 
 Fitur:
 - Capture wajah
 - Notifikasi info tamu by whatsapp (bisa didisable)
     Notifikasi dikirim ke
-    -- Person yang dituju oleh tamu
+    -- Pejabat yang dituju oleh tamu
     -- Tamu
     -- operator (opsional)
 - Riwayat tamu
 - Riwayat pengiriman notifikasi
+- Daftar pejabat yang dapat ditemui oleh tamu
 
-Ingin bertanya? Hubungi saya di [a link](https://s.dialogwa.id/65f3b222ef52bc3780613e59_demo) 
+Ingin bertanya? Hubungi saya di [whatsapp (chat only)](https://s.dialogwa.id/65f3b222ef52bc3780613e59_demo) 
 
 -------------------------------
 
@@ -51,17 +52,9 @@ Table: configs
 * SEND_NOTIFICATION --tinyint. 0: tidak kirim notifikasi, 1: kirim notifikasi 
 ```
 
-###  SET DATA PERSON YANG BISA DITEMUI OLEH TAMU
-Table: persons
-
-Pada tabel ini Anda dapat mengeset pihak-pihak yang dapat dituju oleh tamu. Daftar pihak ini akan muncul pada form saat tamu / operator mengisi data tamu.
-Nomor telephone dapat diisikan apabila pihak tersebut ingin menerima notifikasi bila ada tamu yang ingin menemuinya.
-
-
 
 ###  DISABLE / ENABLE NOTIFIKASI
 Untuk mendisable notifikasi whatsapp, pada table configs, set value SEND_NOTIFICATION menjadi 0
-
 
 
 ###  DEPLOY PRODUCTION
