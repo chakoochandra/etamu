@@ -36,7 +36,7 @@ DELETE FROM `ci_sessions`;
 CREATE TABLE IF NOT EXISTS `configs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `key` varchar(50) DEFAULT NULL,
-  `value` varchar(200) DEFAULT NULL,
+  `value` varchar(250) DEFAULT NULL,
   `category` tinyint(4) DEFAULT NULL,
   `note` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
