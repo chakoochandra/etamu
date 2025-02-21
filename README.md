@@ -13,7 +13,12 @@ Fitur:
 - Riwayat pengiriman notifikasi
 - Daftar pejabat yang dapat ditemui oleh tamu
 
-Ingin bertanya? Hubungi saya di [whatsapp (chat only)](https://s.dialogwa.id/65f3b222ef52bc3780613e59_demo) 
+
+## Support
+Aplikasi ini berguna untuk Anda? [Traktir saya eskrim](https://trakteer.id/dialogwa/tip).
+
+## Kolaborasi
+[Chat me](https://dialogwa.web.id/chat/6287778299688) 
 
 -------------------------------
 
@@ -45,12 +50,18 @@ Table: configs
 * APP_SHORT_NAME
 * SATKER_NAME
 * SATKER_ADDRESS
-* DIALOGWA_API_URL --string. url api dialogwa.id
-* DIALOGWA_TOKEN --string. token dialogwa.id
-* DIALOGWA_SESSION --string. sesi online dialogwa.id
+* DIALOGWA_API_URL --string. url api dialogwa.web.id
+* DIALOGWA_TOKEN --string. token dialogwa.web.id
+* DIALOGWA_SESSION --string. sesi online dialogwa.web.id
 * WA_TEST_TARGET --string. nomor WA untuk tes penerima notifikasi
 * SEND_NOTIFICATION --tinyint. 0: tidak kirim notifikasi, 1: kirim notifikasi 
 ```
+
+###  MENU
+- Halaman Utama http://....../etamu/etamu
+- Riwayat Tamu http://....../etamu/etamu/history
+- Riwyat Notifikasi Whatsapp http://....../etamu/whatsapp
+- Daftar Pejabat http://....../etamu/etamu/person
 
 
 ###  DISABLE / ENABLE NOTIFIKASI

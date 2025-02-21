@@ -13,11 +13,13 @@ class Etamu extends Core_Controller
 
     public function index()
     {
+        $this->showBreadcrumb = false;
         $this->vars = [
             'main_body' => 'layout_content',
             'view' => 'etamu/index',
             'title' => 'Form Tamu',
             'latest' => $this->guests->findLatest(),
+            'message' => '',
         ];
 
         $result = $this->_prepare_form();
@@ -30,7 +32,9 @@ class Etamu extends Core_Controller
         $this->load->vars($this->vars);
 
         if ($this->input->is_ajax_request()) {
-            return $this->viewAjax('layout_content');
+            return $this->viewAjax('layout_content', [
+                'message' => $this->vars['message'],
+            ]);
         }
 
         $this->load->view('layout_no_sidebar');
@@ -306,7 +310,6 @@ class Etamu extends Core_Controller
         }
 
         if (isset($_POST) && !empty($_POST)) {
-            $this->vars['message'] = '';
             if (!WA_TEST_TARGET_ETAMU) {
                 $this->vars['message'] = 'Variabel WA_TEST_TARGET_ETAMU belum diset pada tabel configs';
             }
@@ -314,10 +317,10 @@ class Etamu extends Core_Controller
                 $this->vars['message'] = 'Variabel DIALOGWA_API_URL belum diset pada tabel configs';
             }
             if (!DIALOGWA_TOKEN) {
-                $this->vars['message'] = 'Variabel DIALOGWA_TOKEN belum diset pada tabel configs. Token didapat dari <strong><a href="https://dialogwa.id/#paket-0" target="blank">https://dialogwa.id</a></strong>';
+                $this->vars['message'] = 'Variabel DIALOGWA_TOKEN belum diset pada tabel configs. Token didapat dari <strong><a href="https://dialogwa.web.id/#paket-0" target="blank">https://dialogwa.web.id</a></strong>';
             }
             if (!DIALOGWA_SESSION) {
-                $this->vars['message'] = 'Variabel DIALOGWA_SESSION belum diset pada tabel configs. Buat sesi di <strong><a href="https://dialogwa.id/#paket-0" target="blank">https://dialogwa.id</a></strong>';
+                $this->vars['message'] = 'Variabel DIALOGWA_SESSION belum diset pada tabel configs. Buat sesi di <strong><a href="https://dialogwa.web.id/#paket-0" target="blank">https://dialogwa.web.id</a></strong>';
             }
 
             if (!$this->vars['message']) {
@@ -366,7 +369,7 @@ class Etamu extends Core_Controller
             }
         }
 
-        $this->vars['form']['formClass'] = $guestId ? 'form-ajax' : 'form-create';
+        $this->vars['form']['formClass'] = $guestId ? 'form-ajax' : 'form-create form-ajax';
         $this->vars['form']['showBtnCloseModal'] = $guestId ? true : false;
 
         $guest = $guestId ? $this->guests->findOne($guestId) : null;

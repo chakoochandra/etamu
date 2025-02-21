@@ -91,7 +91,7 @@ $menus = get_or_set_menu();
                 ?>
             </ul>
 
-            <div id="container-info" class="d-flex my-5 py-5"></div>
+            <div id="container-info-sidebar" class="d-flex my-5 py-5"></div>
         </nav>
     </div>
 </aside>

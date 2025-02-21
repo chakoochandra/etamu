@@ -54,9 +54,9 @@
 			<div id="cameraControls-<?php echo $name ?>-<?php echo $class ?>" class="camera-controls cameraControls-<?php echo $name ?>-<?php echo $class ?> d-flex justify-content-center align-items-center w-100">
 				<a href="#" id="open-camera-<?php echo $name ?>-<?php echo $class ?>" title="Buka Kamera" class="btn btn-outline-success w-100"><i class="fa fa-camera" aria-hidden="true"></i> Buka Kamera</a>
 
-				<a href="#" id="exit-app-<?php echo $name ?>-<?php echo $class ?>" title="Tutup Kamera" class="mode-capture-<?php echo $name ?>-<?php echo $class ?> btn btn-outline-danger w-50 d-none justify-content-center align-items-center"><i class="fa fa-close" aria-hidden="true"></i>&nbsp;Batal</a>
+				<!-- <a href="#" id="exit-app-<php echo $name ?>-<php echo $class ?>" title="Tutup Kamera" class="mode-capture-<php echo $name ?>-<php echo $class ?> btn btn-outline-danger w-50 d-none justify-content-center align-items-center"><i class="fa fa-close" aria-hidden="true"></i>&nbsp;Batal</a> -->
 				<!-- <a href="#" id="camera-flip" title="Switch Kamera" class="mode-capture"><i class="material-icons">flip_camera_android</i></a> -->
-				<a href="#" id="take-photo-<?php echo $name ?>-<?php echo $class ?>" title="Ambil Foto" class="mode-capture-<?php echo $name ?>-<?php echo $class ?> btn btn-outline-success w-50 d-none justify-content-center align-items-center"><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;Ambil Foto</a>
+				<a href="#" id="take-photo-<?php echo $name ?>-<?php echo $class ?>" title="Ambil Foto" class="mode-capture-<?php echo $name ?>-<?php echo $class ?> btn btn-outline-success d-none justify-content-center align-items-center w-100"><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;Ambil Foto</a>
 			</div>
 		</div>
 	</div>
@@ -68,6 +68,14 @@
 		var canvas = document.getElementById('canvas-<?php echo $name ?>-<?php echo $class ?>');
 		var webcam = new Webcam(document.getElementById('webcam-<?php echo $name ?>-<?php echo $class ?>'), 'user', canvas, document.getElementById('snapSound-<?php echo $name ?>-<?php echo $class ?>'));
 		var picture;
+
+		webcam.start()
+			.then(result => {
+				cameraStarted();
+			})
+			.catch(err => {
+				displayError(err);
+			});
 
 		if ('<?php echo $value ?>') {
 			displayBase64ImageOnCanvas('canvas-<?php echo $name ?>-<?php echo $class ?>', '<?php echo $value ?>');
@@ -103,7 +111,17 @@
 
 		$("#take-photo-<?php echo $name ?>-<?php echo $class ?>").click(function(e) {
 			e.preventDefault();
+			takePhoto();
+		});
 
+		$('form').on('submit', function(e) {
+			var videoElement = $('#webcam-<?php echo $name ?>-<?php echo $class ?>');
+			if (videoElement.is(":visible")) {
+				takePhoto();
+			}
+		});
+
+		function takePhoto() {
 			beforeTakePhoto();
 
 			picture = webcam.snap();
@@ -111,17 +129,7 @@
 			$('#hidden-<?php echo $name ?>-<?php echo $class ?>').val(compressedImage);
 
 			afterTakePhoto();
-		});
-
-		$('form').on('submit', function() {
-			var videoElement = $('#webcam-<?php echo $name ?>-<?php echo $class ?>');
-			if (videoElement.is(":visible")) {
-				picture = webcam.snap();
-				var compressedImage = canvas.toDataURL('image/png', 0.1);
-				$('#hidden-<?php echo $name ?>-<?php echo $class ?>').val(compressedImage);
-				webcam.stop();
-			}
-		});
+		}
 
 		function afterTakePhoto() {
 			webcam.stop();
@@ -143,7 +151,7 @@
 				.css({
 					'opacity': 0.7
 				});
-			$('#cameraControls-<?php echo $name ?>-<?php echo $class ?>').addClass('d-none');
+			// $('#cameraControls-<php echo $name ?>-<php echo $class ?>').addClass('d-none');
 		}
 
 		function displayError(err = '') {

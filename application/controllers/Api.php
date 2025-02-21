@@ -73,13 +73,13 @@ class Api extends CI_Controller
 		if (!DIALOGWA_TOKEN) {
 			return [
 				'status' => 405,
-				'error' => 'Variabel DIALOGWA_TOKEN belum diset pada tabel configs. Token didapat dari <strong><a href="https://dialogwa.id/#paket-0" target="blank">https://dialogwa.id</a></strong>'
+				'error' => 'Variabel DIALOGWA_TOKEN belum diset pada tabel configs. Token didapat dari <strong><a href="https://dialogwa.web.id/#paket-0" target="blank">https://dialogwa.web.id</a></strong>'
 			];
 		}
 		if (!DIALOGWA_SESSION) {
 			return [
 				'status' => 405,
-				'error' => 'Variabel DIALOGWA_SESSION belum diset pada tabel configs. Buat sesi di <strong><a href="https://dialogwa.id/#paket-0" target="blank">https://dialogwa.id</a></strong>'
+				'error' => 'Variabel DIALOGWA_SESSION belum diset pada tabel configs. Buat sesi di <strong><a href="https://dialogwa.web.id/#paket-0" target="blank">https://dialogwa.web.id</a></strong>'
 			];
 		}
 

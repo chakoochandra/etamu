@@ -58,7 +58,7 @@
         toastr.info("<?php echo $this->session->flashdata('info') ?>");
     <?php } ?>
 
-    function checkGateway(type) {
+    function checkGateway() {
         fetch('<?php echo base_url('etamu/check_gateway') ?>')
             .then(response => {
                 if (!response.ok) {
@@ -70,7 +70,7 @@
                 if (data.status) {
                     const result = JSON.parse(data.response);
                     if (result.name) {
-                        $('#container-info').append(`<div class="callout callout-${result.is_expired || result.is_out_of_limit || !result.status?'danger':'success'} d-flex flex-column mb-0 ml-4 py-1" role="alert">
+                        $('#container-info-sidebar').append(`<div class="callout callout-${result.is_expired || result.is_out_of_limit || !result.status?'danger':'success'} d-flex flex-column mb-0 ml-4 py-1" role="alert">
                             <span class="badge badge-${result.status?'success':'danger'}">${result.status?'Aktif':'Tidak Aktif'}</span>
                             <span>Sesi: <strong>${result.name}</strong></span>
                             <span>${result.number}</span>
@@ -78,10 +78,13 @@
                             <span>Expired: ${moment(result.expires).format('dddd, Do MMMM YYYY h:mm')}</span>
                         </div>`);
                     } else {
+                        $('button.btn-submit').hide();
                         $('#container-info').append(`<div class="callout callout-danger d-flex align-items-center mb-0 ml-4 py-1" role="alert">${result.message}</div>`);
                     }
                 } else {
+                    $('button.btn-submit').hide();
                     $('#container-info').append(`<div class="callout callout-danger d-flex align-items-center mb-0 ml-4 py-1" role="alert">${data.message}</div>`);
+                    $('#container-info-sidebar').append(`<div class="callout callout-danger d-flex align-items-center mb-0 ml-4 py-1" role="alert">${data.message}</div>`);
                 }
             })
             .catch(error => {

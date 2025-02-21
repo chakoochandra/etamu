@@ -1,12 +1,14 @@
 <div class="card m-0">
     <h3 class="text-center p-4">eTAMU <?php echo strtoupper(SATKER_NAME) ?></h3>
 
+    <div id="container-info" class="d-flex justify-content-center"></div>
+
     <div class="card-body pb-2">
         <?php echo form_open_multipart(uri_string(), ['class' => $form['formClass']]) ?>
 
         <div class="d-flex flex-row">
             <div class="p-2 d-flex flex-column justify-content-center w-50" id="container-preview">
-                <h4 class="text-center">REKAM WAJAH</h4>
+                <!-- <h4 class="text-center">REKAM WAJAH</h4> -->
 
                 <?php echo '<div class="input-group mb-0 align-items-center container-camera" style="display: block;">' ?>
                 <?php $form['photo']['id'] = $form['photo']['name'] ?>
@@ -103,7 +105,7 @@
                     <?php if ($form['showBtnCloseModal']) : ?>
                         <button type="button" class="col btn btn-warning m-1" data-dismiss="modal" style="min-width: 100px;"><i class="fa fa-times"></i> Batal</button>
                     <?php endif ?>
-                    <button type="submit" class="col btn btn-success m-1" style="min-width: 100px;"><i class="fa fa-save"></i> Simpan</button>
+                    <button type="submit" class="btn-submit col btn btn-success m-1" style="min-width: 100px;"><i class="fa fa-save"></i> Simpan</button>
                 </div>
             </div>
         </div>

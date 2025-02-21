@@ -198,9 +198,7 @@ function postAjax(url, data = {}, processData = true, showLoadingBar = true) {
 				);
 			}
 		},
-		success: function (data, textStatus, jQxhr) {
-			console.log(data);
-			
+		success: function (data, textStatus, jQxhr) {		
 			if (data.status) {
 				if (data.urlSummary) {
 					count_summary(data.urlSummary);
@@ -361,12 +359,12 @@ var intervalRefresh = 1000;
 var worker;
 
 //handle form ajax
-$("body").on("submit", ".form-ajax", function (e) {
-	e.preventDefault();
+// $("body").on("submit", ".form-ajax", function (e) {
+// 	e.preventDefault();
 
-	// postAjax($('.form-ajax').attr('action'), $(this).serialize());
-	postAjax($(".form-ajax").attr("action"), new FormData(this), false, false);
-});
+// 	// postAjax($('.form-ajax').attr('action'), $(this).serialize());
+// 	postAjax($(".form-ajax").attr("action"), new FormData(this), false, false);
+// });
 
 $("body").on("click", ".btn-modal", function (e) {
 	e.preventDefault();
