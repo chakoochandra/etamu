@@ -459,6 +459,7 @@ $config['csrf_cookie_name'] = 'csrf_pa_notifikasi_cookie';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = [
+    'etamu/index',
     'api/send_notif/antrian',
     'api/send_notif/sidang',
     'api/send_notif/calendar',
